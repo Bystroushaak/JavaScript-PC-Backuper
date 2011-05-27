@@ -1,5 +1,5 @@
 #! /usr/bin/env sh
-# jpb.sh v0.1.0 (27.05.2011) by Bystroushaak (bystrousak@kitakitsune.org)
+# jpb.sh v0.3.0 (27.05.2011) by Bystroushaak (bystrousak@kitakitsune.org)
 
 PFN="paths"
 OFN="clipboard"
@@ -31,27 +31,36 @@ del)
 		fi
 	done
 ;;
+list)
+	cat $PFN
+;;
 save)
 	JPBP="/usr/bin/jpb"
+	TJPBP="/tmp/jbp.tmp"
+	TDP="/tmp/data.tar.gz"
 	
 	if [ $2!="" ]; then
 		OFN=$2
 	fi
 	
-	# unpack jpb
-	echo "base64 -d > '/tmp/jbp.tmp' <<EOF--" > $OFN
+	echo "Packing jpb.."
+	echo "echo \"Unpacking jpb..\"; base64 -d > $TJPBP <<EOF-" > $OFN
 	gzip -c $0 | base64 >> $OFN
-	echo "EOF--" >> $OFN
-	echo "gzip -c -d /tmp/jbp.tmp > $JPBP"
+	echo "EOF-" >> $OFN
+	echo "gzip -c -d $TJPBP > $JPBP && rm $TJPBP" >> $OFN
+	echo "chmod +x $JPBP" >> $OFN
 	
-	#~ tar cz -T $PFN -f - "$PFN" >> $OFN 2>/dev/null
-;;
-list)
-	more $PFN
+	echo "Packing data.."
+	echo "echo \"Unpacking data..\"; base64 -d > $TDP <<EOF-" >> $OFN
+	touch $PFN
+	tar cvz -T $PFN -f - "$PFN" | base64 >> $OFN 2>/dev/null
+	echo "EOF-" >> $OFN
+	echo "cd /; tar -xvf $TDP && rm $TDP" >> $OFN
 ;;
 *)
 	echo "Usage: $0 [action] file file2 .."
-	echo "\nActions:"
+	echo
+	echo "Actions:"
 	echo "	add"
 	echo "		Mark files for backups."
 	echo "	del"
