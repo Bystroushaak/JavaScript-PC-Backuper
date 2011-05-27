@@ -1,0 +1,39 @@
+Zadání:
+	Vytvořit nástroj, který umožní pracovat s Bellardovým simulovaným počítačem.	
+	Konkrétně jde o možnost zálohovat a jednoduchým způsobem přenášet soubory. Princip je podobný jako u GITu - jeden spustitelný soubor s parametry
+
+	add
+		Přidá do databáze cestu k zadanému souboru.
+
+	del
+		Odstraní z databáze zadaný soubor. Umožňuje odstranit jak podle cesty, tak podle čísla.
+
+	save
+		Vytvoří export s programem jakožto loaderem + tar archiv s daty a databází.
+
+	list
+		Vypíše seznam čísel souborů a cest k nim.
+
+	export_db
+		Na stdin vypíše DB.
+
+	import_db
+		Z stdin importuje DB.
+		
+	unpack
+
+Implementace
+	Celý program bude implementován v tcc, jakožto spustitelný script.
+
+	Jednotlivé komponenty programu jsou:
+		db.c
+			Fce starající se o databázi.
+
+			void add(filename)
+			int del(filename)
+			char[] get_list()
+			char[] export()
+			int import(db)
+
+		packer.c
+			
