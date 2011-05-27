@@ -1,15 +1,18 @@
 Zadání:
 	Vytvořit nástroj, který umožní pracovat s Bellardovým simulovaným počítačem.	
-	Konkrétně jde o možnost zálohovat a jednoduchým způsobem přenášet soubory. Princip je podobný jako u GITu - jeden spustitelný soubor s parametry
+	Konkrétně jde o možnost zálohovat a jednoduchým způsobem přenášet soubory. 
+	Princip je podobný jako u GITu - jeden spustitelný soubor s parametry:
 
 	add
 		Přidá do databáze cestu k zadanému souboru.
 
 	del
-		Odstraní z databáze zadaný soubor. Umožňuje odstranit jak podle cesty, tak podle čísla.
+		Odstraní z databáze zadaný soubor. Umožňuje odstranit jak podle cesty, 
+		tak podle čísla.
 
 	save
-		Vytvoří export s programem jakožto loaderem + tar archiv s daty a databází.
+		Vytvoří export s programem jakožto loaderem + tar archiv s daty a 
+		databází.
 
 	list
 		Vypíše seznam čísel souborů a cest k nim.
