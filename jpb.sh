@@ -32,7 +32,19 @@ del)
 	done
 ;;
 save)
-	tar cz -T $PFN -f - "$PFN" >> $OFN 2>/dev/null
+	JPBP="/usr/bin/jpb"
+	
+	if [ $2!="" ]; then
+		OFN=$2
+	fi
+	
+	# unpack jpb
+	echo "base64 -d > '/tmp/jbp.tmp' <<EOF--" > $OFN
+	gzip -c $0 | base64 >> $OFN
+	echo "EOF--" >> $OFN
+	echo "gzip -c -d /tmp/jbp.tmp > $JPBP"
+	
+	#~ tar cz -T $PFN -f - "$PFN" >> $OFN 2>/dev/null
 ;;
 list)
 	more $PFN
