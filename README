@@ -1,4 +1,4 @@
-Simple self modificating packer for Javascript PC Emulator (http://bellard.org/jslinux/).
+Simple self-modifying packer for Javascript PC Emulator (http://bellard.org/jslinux/).
 
 Usage is simple:
 	1) Download "jpb.sh" (or "loader.sh", then skip step 2).
