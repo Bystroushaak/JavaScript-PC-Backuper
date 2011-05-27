@@ -14,26 +14,8 @@ Zadání:
 	list
 		Vypíše seznam čísel souborů a cest k nim.
 
-	export_db
-		Na stdin vypíše DB.
-
-	import_db
-		Z stdin importuje DB.
-		
-	unpack
-
 Implementace
 	Celý program bude implementován v tcc, jakožto spustitelný script.
 
-	Jednotlivé komponenty programu jsou:
-		db.c
-			Fce starající se o databázi.
-
-			void add(filename)
-			int del(filename)
-			char[] get_list()
-			char[] export()
-			int import(db)
-
-		packer.c
-			
+	Hm. Ukázalo se, že tcc přítomný v emulátoru je osekaný o většinu .h souborů,
+	takže prakticky nic neumí. Na řadě je tedy plán B -> sh.
