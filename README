@@ -1,12 +1,12 @@
-Simple self-modifying packer for Javascript PC Emulator (http://bellard.org/jslinux/).
+Self-modifying packer for Javascript PC Emulator (http://bellard.org/jslinux/).
 
 Usage is simple:
 	1) Download "jpb.sh" (or "loader.sh", then skip step 2).
 	2) Run "sh jpb.sh save loader.sh".
-	3) Open "loader.sh" in you favourite text edior and copy/paste code to 
+	3) Open "loader.sh" in you favorite text editor and copy/paste code to 
 	   Bellards emulator.
-	4) Wait for boot, then run "sh /dev/clipboard". This will instal new command
-	   to your emulated system - "jpb".
+	4) Wait for boot, then run "sh /dev/clipboard". This will install new 
+	   command to your emulated system - "jpb".
 	5) Run "jpb" for help. Create some files, add them with "jpb add filename".
 	6) Run "jpb save" and save code from clipboard field.
 	7) Refresh page (reboot emulated pc), copy saved code to clipboard field, 
